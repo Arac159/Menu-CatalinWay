@@ -22,14 +22,19 @@ void displaymainmenu()
 	printf("Please choose\n");
 }
 
+
 void displayoption2menu()
 {
-	jump:
 	printf("Option2 menu\n");
 	printf("1. Option C\n");
 	printf("2. Option D\n");
 	printf("3. Back\n");
-	printf("Please choose\n");
+	printf("Please choose\n");	
+}
+
+void operationoption2menu()
+{
+	jump:
 	int c = selection();
 	if (c == 1)
 	{
@@ -38,6 +43,7 @@ void displayoption2menu()
 		int c = selection();
 		if (c == 3)
 		{
+			displayoption2menu();
 			goto jump;
 		}
 	}
@@ -48,6 +54,7 @@ void displayoption2menu()
 		int c = selection();
 		if (c == 3)
 		{
+			displayoption2menu();
 			goto jump;
 		}
 	}
@@ -60,14 +67,19 @@ void displayoption2menu()
 		invalidchoice();
 	}
 }
+
 void displayoption1menu()
 {
-	jump:
 	printf("Option1 menu\n");
 	printf("1. Option A\n");
 	printf("2. Option B\n");
 	printf("3. Back\n");
 	printf("Please choose\n");
+}
+
+void operationoption1menu()
+{
+	jump:
 	int c = selection();
 	if (c == 1)
 	{
@@ -76,6 +88,7 @@ void displayoption1menu()
 		int c = selection();
 		if (c == 3)
 		{
+			displayoption1menu();
 			goto jump;
 		}
 	}
@@ -86,6 +99,7 @@ void displayoption1menu()
 		int c = selection();
 		if (c == 3)
 		{
+			displayoption1menu();
 			goto jump;
 		}
 	}
@@ -100,7 +114,6 @@ void displayoption1menu()
 
 }
 
-
 void main()
 {
 	displaymainmenu();
@@ -109,10 +122,12 @@ void main()
 	if (c == 1)
 	{
 		displayoption1menu();
+		operationoption1menu();
 	}
 	else if (c == 2)
 	{
 		displayoption2menu();
+		operationoption2menu();
 	}
 	else if (c == 3)
 	{
